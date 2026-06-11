@@ -209,6 +209,87 @@ ul, ol {
     }
   }
 
+  .product-price {
+    font-family: $font-ui;
+    font-weight: 700;
+    font-size: 2rem;
+    color: $primary;
+    margin-bottom: 1.5rem;
+    @include text-glow($primary);
+  }
+
+  .qty-control {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 1.5rem;
+
+    .qty-btn {
+      width: 44px;
+      height: 44px;
+      background: $dark-surface;
+      border: 1px solid rgba($primary, 0.3);
+      color: $white;
+      font-size: 1.2rem;
+      font-family: $font-ui;
+      font-weight: 700;
+      cursor: pointer;
+      @include flex-center;
+      transition: $transition;
+
+      &:first-child { border-radius: $radius 0 0 $radius; }
+      &:last-child { border-radius: 0 $radius $radius 0; }
+
+      &:hover {
+        background: $primary;
+        color: $dark;
+        border-color: $primary;
+      }
+    }
+
+    .qty-display {
+      width: 50px;
+      height: 44px;
+      background: $dark-card;
+      border-top: 1px solid rgba($primary, 0.3);
+      border-bottom: 1px solid rgba($primary, 0.3);
+      border-left: none;
+      border-right: none;
+      text-align: center;
+      color: $white;
+      font-family: $font-ui;
+      font-weight: 700;
+      font-size: 1rem;
+      @include flex-center;
+      line-height: 1;
+    }
+
+    .btn-add-to-cart {
+      margin-left: 1rem;
+      flex: 1;
+      font-family: $font-ui;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      padding: 0 1.5rem;
+      height: 44px;
+      background: $primary;
+      color: $dark;
+      border: none;
+      border-radius: $radius;
+      cursor: pointer;
+      transition: $transition;
+      text-transform: uppercase;
+      white-space: nowrap;
+
+      &:hover {
+        background: $accent;
+        @include glow($accent);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
   .footer-bottom {
     border-top: 1px solid rgba($primary, 0.1);
     padding-top: 1.5rem;
