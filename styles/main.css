@@ -418,14 +418,14 @@ ul, ol {
   cursor: pointer;
 }
 
-.category-pills {
+.categorias {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
 }
-.category-pills .pill {
+.categorias .pill {
   font-family: "Exo 2", sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
@@ -439,7 +439,7 @@ ul, ol {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.category-pills .pill:hover, .category-pills .pill.active {
+.categorias .pill:hover, .categorias .pill.active {
   background: #00b4d8;
   color: #0d0d0d;
   border-color: #00b4d8;
@@ -537,116 +537,6 @@ ul, ol {
   font-weight: 700;
   font-size: 1.05rem;
   color: #00b4d8;
-}
-
-.events-section {
-  background: #1a1a2e;
-  padding: 4rem 0;
-  position: relative;
-}
-
-.carousel-retro .carousel-inner {
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 180, 216, 0.2);
-}
-.carousel-retro .carousel-item {
-  min-height: 260px;
-  background: #0d0d0d;
-  display: flex;
-  align-items: center;
-  padding: 3rem 4rem;
-  position: relative;
-}
-.carousel-retro .carousel-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(to bottom, transparent 0px, transparent 2px, rgba(0, 0, 0, 0.08) 2px, rgba(0, 0, 0, 0.08) 4px);
-  pointer-events: none;
-  z-index: 1;
-}
-.carousel-retro .carousel-item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0, 180, 216, 0.04) 0%, transparent 60%);
-}
-.carousel-retro .carousel-item .carousel-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-}
-.carousel-retro .carousel-item .event-eyebrow {
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.5rem;
-  color: #00b4d8;
-  letter-spacing: 3px;
-  margin-bottom: 1rem;
-  display: block;
-}
-.carousel-retro .carousel-item .event-title {
-  font-family: "Press Start 2P", monospace;
-  font-size: clamp(0.65rem, 2vw, 0.9rem);
-  color: #ffffff;
-  line-height: 1.7;
-  margin-bottom: 0.75rem;
-}
-.carousel-retro .carousel-item .event-desc {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1rem;
-  color: #c5c5c5;
-}
-.carousel-retro .carousel-control-prev,
-.carousel-retro .carousel-control-next {
-  width: 44px;
-  height: 44px;
-  background: rgba(31, 31, 46, 0.9);
-  border: 1px solid rgba(0, 180, 216, 0.3);
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 1;
-}
-.carousel-retro .carousel-control-prev:hover,
-.carousel-retro .carousel-control-next:hover {
-  background: rgba(0, 180, 216, 0.2);
-  border-color: #00b4d8;
-}
-.carousel-retro .carousel-control-prev .carousel-control-prev-icon,
-.carousel-retro .carousel-control-prev .carousel-control-next-icon,
-.carousel-retro .carousel-control-next .carousel-control-prev-icon,
-.carousel-retro .carousel-control-next .carousel-control-next-icon {
-  width: 16px;
-  height: 16px;
-}
-.carousel-retro .carousel-control-prev {
-  left: -22px;
-}
-.carousel-retro .carousel-control-next {
-  right: -22px;
-}
-.carousel-retro .carousel-indicators {
-  bottom: -40px;
-  gap: 6px;
-}
-.carousel-retro .carousel-indicators [data-bs-target] {
-  width: 28px;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(0, 180, 216, 0.3);
-  border: none;
-  opacity: 1;
-  transition: all 0.25s ease;
-}
-.carousel-retro .carousel-indicators [data-bs-target].active {
-  background: #00b4d8;
-  box-shadow: 0 0 12px rgba(0, 180, 216, 0.35), 0 0 30px rgba(0, 180, 216, 0.12);
-}
-
-.events-cta {
-  text-align: center;
-  margin-top: 4rem;
 }
 
 .product-detail {
@@ -1073,62 +963,6 @@ ul, ol {
   font-size: 3rem;
 }
 
-.reviews-section {
-  padding: 4rem 0;
-}
-.reviews-section .review-card {
-  background: #16213e;
-  border: 1px solid rgba(0, 180, 216, 0.15);
-  border-radius: 14px;
-  padding: 1.5rem;
-  transition: all 0.25s ease;
-}
-.reviews-section .review-card:hover {
-  border-color: rgba(0, 180, 216, 0.4);
-  transform: translateY(-4px);
-}
-.reviews-section .review-card .review-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-.reviews-section .review-card .review-header .review-avatar {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #00b4d8, #1a1a2e);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.6rem;
-  color: #0d0d0d;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-.reviews-section .review-card .review-header .review-meta .reviewer-name {
-  font-family: "Exo 2", sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #ffffff;
-}
-.reviews-section .review-card .review-header .review-meta .review-game {
-  font-size: 0.8rem;
-  color: #00b4d8;
-}
-.reviews-section .review-card .review-stars {
-  color: #ffd60a;
-  font-size: 0.9rem;
-  margin-bottom: 0.75rem;
-  letter-spacing: 2px;
-}
-.reviews-section .review-card .review-text {
-  font-size: 0.9rem;
-  color: #c5c5c5;
-  line-height: 1.7;
-}
-
 .contact-section {
   padding: 4rem 0;
 }
@@ -1224,7 +1058,6 @@ ul, ol {
   font-size: 4rem;
   margin-bottom: 1rem;
   display: block;
-  animation: float 3s ease-in-out infinite;
 }
 .about-section .about-hero .about-tagline {
   font-family: "Rajdhani", sans-serif;
@@ -1281,7 +1114,6 @@ ul, ol {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00b4d8, #1a1a2e);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1360,6 +1192,104 @@ ul, ol {
 }
 .footer-retro .footer-bottom .footer-copy span {
   color: #00b4d8;
+}
+
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+
+.section-pad {
+  padding: 10rem 0;
+}
+
+.text-primary-retro {
+  color: #00b4d8;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(0, 180, 216, 0.6), 0 0 25px rgba(0, 180, 216, 0.3);
+}
+
+.border-primary-retro {
+  border-color: rgba(0, 180, 216, 0.3) !important;
+}
+
+.toast-retro {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #16213e;
+  border: 1px solid rgba(0, 180, 216, 0.4);
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  color: #ffffff;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 0 12px rgba(0, 180, 216, 0.35), 0 0 30px rgba(0, 180, 216, 0.12);
+  max-width: 320px;
+}
+.toast-retro .toast-icon {
+  font-size: 1.3rem;
+  color: #00b4d8;
+}
+.toast-retro.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding: 3rem 0 2rem;
+  }
+  .hero-section .hero-visual {
+    margin-top: 2rem;
+  }
+  .carousel-retro .carousel-item {
+    padding: 2.5rem 2rem;
+  }
+  .carousel-retro .carousel-control-prev {
+    left: 4px;
+  }
+  .carousel-retro .carousel-control-next {
+    right: 4px;
+  }
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+  .cart-sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+  .product-detail .product-img-wrap {
+    max-width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .game-card .game-card-body {
+    padding: 0.65rem;
+  }
+  .game-card .game-card-body .game-title {
+    font-size: 0.85rem;
+  }
+  .game-card .game-card-body .game-price {
+    font-size: 0.9rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
