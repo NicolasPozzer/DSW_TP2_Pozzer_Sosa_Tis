@@ -1,12 +1,10 @@
-
-
 function irAlJuego2(game) {
   const stockBadge = game.stock
     ? ''
     : '<div style="position:absolute;top:8px;left:8px;background:rgba(230,57,70,0.85);color:#fff;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:20px;font-family:\'Exo 2\',sans-serif;">Sin Stock</div>';
 
   return `
-    <div class="game-card" onclick="irAlProducto(${game.id})">
+    <article class="game-card" onclick="irAlProducto(${game.id})">
       <div class="game-card-img">
         <img src="${game.img}" alt="${game.title}" onerror="this.src='https://via.placeholder.com/300x200/1a1a2e/00b4d8?text=${encodeURIComponent(game.title)}'" loading="lazy" />
         ${stockBadge}
@@ -27,7 +25,7 @@ function irAlJuego2(game) {
           </button>
         </div>
       </div>
-    </div>
+    </article>
   `;
 }
 
@@ -37,7 +35,7 @@ function irAlJuego(game) {
         : '<div style="position:absolute;top:8px;left:8px;background:rgba(230,57,70,0.85);color:#fff;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:20px;font-family:\'Exo 2\',sans-serif;">Sin Stock</div>';
 
     return `
-    <div class="game-card" onclick="irAlProducto2(${game.id})">
+    <article class="game-card" onclick="irAlProducto2(${game.id})">
       <div class="game-card-img">
         <img src="${game.img}" alt="${game.title}" onerror="this.src='https://via.placeholder.com/300x200/1a1a2e/00b4d8?text=${encodeURIComponent(game.title)}'" loading="lazy" />
         ${stockBadge}
@@ -58,7 +56,7 @@ function irAlJuego(game) {
           </button>
         </div>
       </div>
-    </div>
+    </article>
   `;
 }
 
@@ -78,3 +76,9 @@ function getQueryParam(param) {
   const url = new URL(window.location.href);
   return url.searchParams.get(param);
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tooltipTriggers = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  tooltipTriggers.forEach(el => new bootstrap.Tooltip(el));
+});
