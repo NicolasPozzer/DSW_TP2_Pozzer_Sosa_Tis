@@ -143,7 +143,9 @@
         <div class="row g-4 align-items-start">
           <div class="col-md-5 d-flex justify-content-center">
             <div class="product-img-wrap">
-              <img src="${game.img}" alt="${game.title}" onerror="this.src='https://via.placeholder.com/420x300/1a1a2e/00b4d8?text=${encodeURIComponent(game.title)}'" />
+              <img src="${game.img}" alt="${game.title}"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="no-image-placeholder" style="display:none;">Sin imagen</div>
             </div>
           </div>
           <div class="col-md-7">
