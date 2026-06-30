@@ -49,8 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (valido) {
+            const toast = new bootstrap.Toast(
+                document.getElementById("toastContacto")
+            );
 
-            alert("Mensaje enviado correctamente.");
+            toast.show();
 
             form.reset();
 
