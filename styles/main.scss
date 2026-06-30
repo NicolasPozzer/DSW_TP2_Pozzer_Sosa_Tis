@@ -13,9 +13,9 @@ $danger: #e63946;
 $success: #2dc653;
 $yellow: #ffd60a;
 
-$font-display: 'Press Start 2P', monospace;
-$font-body: 'Rajdhani', sans-serif;
-$font-ui: 'Exo 2', sans-serif;
+$font-display: "Press Start 2P", monospace;
+$font-body: "Rajdhani", sans-serif;
+$font-ui: "Exo 2", sans-serif;
 
 $transition: all 0.25s ease;
 $transition-slow: all 0.4s ease;
@@ -41,24 +41,28 @@ $desktop: 992px;
 }
 
 @mixin glow($color: $primary) {
-  box-shadow: 0 0 12px rgba($color, 0.35), 0 0 30px rgba($color, 0.12);
+  box-shadow:
+    0 0 12px rgba($color, 0.35),
+    0 0 30px rgba($color, 0.12);
 }
 
 @mixin text-glow($color: $primary) {
-  text-shadow: 0 0 10px rgba($color, 0.6), 0 0 25px rgba($color, 0.3);
+  text-shadow:
+    0 0 10px rgba($color, 0.6),
+    0 0 25px rgba($color, 0.3);
 }
 
 @mixin scanlines {
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: repeating-linear-gradient(
-                    to bottom,
-                    transparent 0px,
-                    transparent 2px,
-                    rgba(0, 0, 0, 0.08) 2px,
-                    rgba(0, 0, 0, 0.08) 4px
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.08) 2px,
+      rgba(0, 0, 0, 0.08) 4px
     );
     pointer-events: none;
     z-index: 1;
@@ -68,7 +72,9 @@ $desktop: 992px;
 // ========================================
 // reset
 // ========================================
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -98,7 +104,8 @@ img {
   display: block;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -119,8 +126,12 @@ ul, ol {
 // ========================================
 // fuentes
 // ========================================
-.font-display { font-family: $font-display; }
-.font-body { font-family: $font-body; }
+.font-display {
+  font-family: $font-display;
+}
+.font-body {
+  font-family: $font-body;
+}
 
 .section-title {
   font-family: $font-display;
@@ -133,7 +144,7 @@ ul, ol {
   text-transform: uppercase;
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     width: 60px;
     height: 3px;
@@ -174,7 +185,9 @@ ul, ol {
       color: $dark;
     }
 
-    &:active { transform: translateY(0); }
+    &:active {
+      transform: translateY(0);
+    }
   }
 
   &-dark {
@@ -272,7 +285,8 @@ ul, ol {
     letter-spacing: 0.5px;
     transition: $transition;
 
-    &:hover, &.active {
+    &:hover,
+    &.active {
       color: $primary !important;
       border-color: rgba($primary, 0.3);
       background: rgba($primary, 0.08);
@@ -330,7 +344,9 @@ ul, ol {
       filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
     }
 
-    &:focus { box-shadow: 0 0 0 0.2rem rgba($primary, 0.25); }
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+    }
   }
 }
 
@@ -339,7 +355,12 @@ ul, ol {
 // ========================================
 .hero-section {
   min-height: 80vh;
-  background: linear-gradient(135deg, $dark-mid 0%, $dark 50%, rgba($primary, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    $dark-mid 0%,
+    $dark 50%,
+    rgba($primary, 0.05) 100%
+  );
   display: flex;
   align-items: center;
   position: relative;
@@ -348,12 +369,16 @@ ul, ol {
   @include scanlines;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba($primary, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba($primary, 0.08) 0%,
+      transparent 70%
+    );
     top: -150px;
     right: -150px;
     pointer-events: none;
@@ -451,13 +476,23 @@ ul, ol {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 // ========================================
@@ -485,7 +520,9 @@ ul, ol {
       transition: $transition;
       outline: none;
 
-      &::placeholder { color: $gray-mid; }
+      &::placeholder {
+        color: $gray-mid;
+      }
 
       &:focus {
         border-color: $primary;
@@ -529,7 +566,8 @@ ul, ol {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 
-    &:hover, &.active {
+    &:hover,
+    &.active {
       background: $primary;
       color: $dark;
       border-color: $primary;
@@ -750,8 +788,12 @@ ul, ol {
         @include flex-center;
         transition: $transition;
 
-        &:first-child { border-radius: $radius 0 0 $radius; }
-        &:last-child { border-radius: 0 $radius $radius 0; }
+        &:first-child {
+          border-radius: $radius 0 0 $radius;
+        }
+        &:last-child {
+          border-radius: 0 $radius $radius 0;
+        }
 
         &:hover {
           background: $primary;
@@ -823,7 +865,8 @@ ul, ol {
         transition: $transition;
         text-transform: uppercase;
 
-        &.active, &:hover {
+        &.active,
+        &:hover {
           background: $primary;
           color: $dark;
           border-color: $primary;
@@ -840,7 +883,9 @@ ul, ol {
 
   .tab-pane {
     display: none;
-    &.active { display: block; }
+    &.active {
+      display: block;
+    }
   }
 
   p {
@@ -905,8 +950,14 @@ ul, ol {
       align-items: center;
       gap: 0.5rem;
 
-      .cart-icon { color: $primary; font-size: 1.2rem; }
-      .brand-icon { font-size: 1.1rem; color: $primary; }
+      .cart-icon {
+        color: $primary;
+        font-size: 1.2rem;
+      }
+      .brand-icon {
+        font-size: 1.1rem;
+        color: $primary;
+      }
     }
 
     .cart-close {
@@ -919,7 +970,9 @@ ul, ol {
       line-height: 1;
       padding: 0.2rem 0.4rem;
 
-      &:hover { color: $danger; }
+      &:hover {
+        color: $danger;
+      }
     }
   }
 
@@ -1033,7 +1086,9 @@ ul, ol {
         transition: $transition;
         padding: 0.1rem;
 
-        &:hover { color: $danger; }
+        &:hover {
+          color: $danger;
+        }
       }
     }
   }
@@ -1070,7 +1125,8 @@ ul, ol {
       flex-direction: column;
       gap: 0.6rem;
 
-      button, a {
+      button,
+      a {
         width: 100%;
         text-align: center;
         display: block;
@@ -1088,7 +1144,9 @@ ul, ol {
     font-size: 0.95rem;
     padding: 2rem;
 
-    .empty-icon { font-size: 3rem; }
+    .empty-icon {
+      font-size: 3rem;
+    }
   }
 }
 
@@ -1118,7 +1176,9 @@ ul, ol {
         letter-spacing: 0.5px;
       }
 
-      input, textarea, select {
+      input,
+      textarea,
+      select {
         width: 100%;
         background: $dark-surface;
         border: 1px solid rgba($primary, 0.2);
@@ -1130,7 +1190,9 @@ ul, ol {
         outline: none;
         transition: $transition;
 
-        &::placeholder { color: $gray-mid; }
+        &::placeholder {
+          color: $gray-mid;
+        }
 
         &:focus {
           border-color: $primary;
@@ -1157,7 +1219,9 @@ ul, ol {
       padding: 1rem 0;
       border-bottom: 1px solid rgba($primary, 0.1);
 
-      &:last-child { border-bottom: none; }
+      &:last-child {
+        border-bottom: none;
+      }
 
       .info-icon {
         font-size: 1.5rem;
@@ -1346,7 +1410,9 @@ ul, ol {
     font-size: 0.8rem;
     color: $gray-mid;
 
-    .footer-copy span { color: $primary; }
+    .footer-copy span {
+      color: $primary;
+    }
   }
 }
 
@@ -1355,16 +1421,26 @@ ul, ol {
 // ========================================
 .page {
   display: none;
-  &.active { display: block; }
+  &.active {
+    display: block;
+  }
 }
 
 // ========================================
 // UTILITY CLASSES
 // ========================================
-.section-pad { padding: 10rem 0; }
-.text-primary-retro { color: $primary; }
-.text-glow { @include text-glow($primary); }
-.border-primary-retro { border-color: rgba($primary, 0.3) !important; }
+.section-pad {
+  padding: 10rem 0;
+}
+.text-primary-retro {
+  color: $primary;
+}
+.text-glow {
+  @include text-glow($primary);
+}
+.border-primary-retro {
+  border-color: rgba($primary, 0.3) !important;
+}
 
 // ========================================
 // notificaciones
@@ -1391,7 +1467,10 @@ ul, ol {
   @include glow($primary);
   max-width: 320px;
 
-  .toast-icon { font-size: 1.3rem; color: $primary; }
+  .toast-icon {
+    font-size: 1.3rem;
+    color: $primary;
+  }
 
   &.show {
     transform: translateY(0);
@@ -1407,23 +1486,36 @@ ul, ol {
     min-height: auto;
     padding: 3rem 0 2rem;
 
-    .hero-visual { margin-top: 2rem; }
+    .hero-visual {
+      margin-top: 2rem;
+    }
   }
 
   .carousel-retro {
-    .carousel-item { padding: 2.5rem 2rem; }
-    .carousel-control-prev { left: 4px; }
-    .carousel-control-next { right: 4px; }
+    .carousel-item {
+      padding: 2.5rem 2rem;
+    }
+    .carousel-control-prev {
+      left: 4px;
+    }
+    .carousel-control-next {
+      right: 4px;
+    }
   }
 
   .games-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 
-  .cart-sidebar { width: 100%; max-width: 100%; }
+  .cart-sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
 
   .product-detail {
-    .product-img-wrap { max-width: 100%; }
+    .product-img-wrap {
+      max-width: 100%;
+    }
   }
 }
 
@@ -1435,7 +1527,51 @@ ul, ol {
 
   .game-card .game-card-body {
     padding: 0.65rem;
-    .game-title { font-size: 0.85rem; }
-    .game-price { font-size: 0.9rem; }
+    .game-title {
+      font-size: 0.85rem;
+    }
+    .game-price {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* ===========================
+   Mejoras Formulario Contacto
+=========================== */
+
+.contact-form-wrap {
+  .form-control,
+  .form-select,
+  textarea {
+    background-color: #181818;
+    color: #fff;
+    border: 2px solid rgba(0, 180, 216, 0.25);
+    border-radius: 10px;
+    transition: 0.3s ease;
+  }
+
+  .form-control:focus,
+  .form-select:focus,
+  textarea:focus {
+    background-color: #222;
+    color: #fff;
+    border-color: #00b4d8;
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+  }
+
+  label {
+    color: #00b4d8;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .btn-retro {
+    transition: 0.3s ease;
+  }
+
+  .btn-retro:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.45);
   }
 }
