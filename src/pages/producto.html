@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle - Retro Games</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+
+<body>
+
+  <!-- ========== barra navegacion ========== -->
+  <nav class="navbar navbar-retro navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">
+        <span class="brand-icon">👾</span>
+        Retro Games
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/tienda.html">Tienda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/contacto.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/nosotros.html">Nosotros</a>
+          </li>
+        </ul>
+        <div class="navbar-icons">
+          <a class="nav-icon-btn" href="#" title="Login">
+            <i class="bi bi-box-arrow-in-right"></i>
+          </a>
+          <button class="nav-icon-btn" id="abrirCarritoBtn" title="Carrito">
+            <i class="bi bi-cart3"></i>
+            <span class="badge-cart" id="cartBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div style="background:#1a1a2e; padding:0.75rem 0; border-bottom:1px solid rgba(0,180,216,0.1);">
+    <div class="container">
+      <nav style="font-family:'Exo 2',sans-serif; font-size:0.85rem; color:#888;">
+        <a href="../../index.html" style="color:#00b4d8;">Inicio</a>
+        <span style="margin:0 0.5rem;">›</span>
+        <a href="tienda.html" style="color:#00b4d8;">Tienda</a>
+        <span style="margin:0 0.5rem;">›</span>
+        <span id="breadcrumbTitle" style="color:#c5c5c5;">Juego</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- detalles del producto -->
+  <section class="product-detail">
+    <div class="container">
+      <div id="productContent">
+        <!-- carga de data -->
+      </div>
+
+      <!-- otros juegos -->
+      <div class="mt-5">
+        <h2 class="section-title">También te puede interesar</h2>
+        <div class="games-grid" id="relatedGames"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="footer-retro">
+    <div class="container">
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 <span>Retro Games</span>. Todos los derechos reservados.</span>
+        <span>Hecho con 🎮 en Argentina</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- carrito -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-sidebar">
+      <div class="cart-header">
+        <div class="cart-title">
+          <span class="brand-icon">👾</span>
+          <i class="bi bi-cart3 cart-icon"></i> Carrito
+        </div>
+        <button class="cart-close" id="cerrarCarritoBtn">&times;</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-subtotal">
+          <span class="subtotal-label">Subtotal</span>
+          <span class="subtotal-amount" id="cartSubtotal">$ 0,00</span>
+        </div>
+        <div class="cart-actions">
+          <button class="btn-retro btn-retro-dark" onclick="cerrarCarrito()"><i class="bi bi-arrow-left"></i> Comprar
+            más</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-retro" id="toastMsg">
+    <span class="toast-icon">✅</span>
+    <span id="toastText">Producto agregado</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    let productQty = 1;
+    let currentGame = null;
+
+    function renderStars(n) {
+      return '★'.repeat(n) + '☆'.repeat(5 - n);
+    }
+
+    function mostrarProducto(game) {
+      currentGame = game;
+      document.title = `${game.title} - Retro Games`;
+      document.getElementById('breadcrumbTitle').textContent = game.title;
+
+      const stockHTML = game.stock
+              ? '<span class="badge-stock"><i class="bi bi-check-circle-fill me-1"></i>En Stock</span>'
+              : '<span class="badge-stock" style="background:rgba(230,57,70,.15);color:#e63946;border-color:rgba(230,57,70,.3);">Sin Stock</span>';
+
+      document.getElementById('productContent').innerHTML = `
+        <div class="row g-4 align-items-start">
+          <div class="col-md-5 d-flex justify-content-center">
+            <div class="product-img-wrap">
+              <img src="${game.img}" alt="${game.title}"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="no-image-placeholder" style="display:none;">Sin imagen</div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="product-info">
+              <h1 class="product-title">${game.title}</h1>
+              <div class="product-studio">${game.studio}</div>
+              <div class="product-authors">${game.authors.join(' · ')}</div>
+              <div class="product-badges">
+                ${stockHTML}
+                <span class="badge-currency"><i class="bi bi-cash me-1"></i>Moneda: ${game.currency}</span>
+                <span class="badge-currency" style="background:rgba(255,214,10,.08);color:#ffd60a;border-color:rgba(255,214,10,.3);">
+                  <i class="bi bi-calendar3 me-1"></i>${game.year}
+                </span>
+              </div>
+              <div class="product-price">$ ${formatPrice(game.price)},00</div>
+
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeProductQty(-1)">−</button>
+                <div class="qty-display" id="qtyDisplay">1</div>
+                <button class="qty-btn" onclick="changeProductQty(1)">+</button>
+                <button class="btn-add-to-cart" onclick="agregarProductoAlCarrito()" ${!game.stock ? 'disabled style="opacity:.5;cursor:not-allowed"' : ''}>
+                  <i class="bi bi-cart-plus me-1"></i> Añadir al Carrito
+                </button>
+              </div>
+
+              <div class="product-tabs-nav">
+                <button class="tab-btn active" onclick="showTab('desc', this)">Descripción</button>
+              </div>
+            </div>
+
+            <div class="product-tab-content">
+              <div class="tab-pane active" id="tab-desc">
+                <p>${game.description}</p>
+              </div>
+              <div class="tab-pane" id="tab-reviews">
+                ${game.reviews.map(r => `
+                  <div style="padding:1rem 0; border-bottom:1px solid rgba(0,180,216,0.1);">
+                    <div style="font-family:'Exo 2',sans-serif;font-weight:700;color:#fff;margin-bottom:0.25rem;">${r.user}</div>
+                    <div style="color:#ffd60a;letter-spacing:2px;font-size:0.9rem;margin-bottom:0.5rem;">${renderStars(r.stars)}</div>
+                    <p style="color:#c5c5c5;font-size:0.9rem;margin:0;">${r.text}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function changeProductQty(delta) {
+      productQty = Math.max(1, productQty + delta);
+      document.getElementById('qtyDisplay').textContent = productQty;
+    }
+
+    function agregarProductoAlCarrito() {
+      if (!currentGame || !currentGame.stock) return;
+      const existing = cart.find(i => i.id === currentGame.id);
+      if (existing) {
+        existing.qty += productQty;
+      } else {
+        cart.push({ id: currentGame.id, title: currentGame.title, price: currentGame.price, img: currentGame.img, qty: productQty });
+      }
+      saveCart();
+      mostrarNotificacion(`"${currentGame.title}" × ${productQty} agregado al carrito`);
+      abrirCarrito();
+    }
+
+    function showTab(tabId, btn) {
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`tab-${tabId}`).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const id = parseInt(getQueryParam('id'));
+      const game = GAMES.find(g => g.id === id);
+
+      if (!game) {
+        document.getElementById('productContent').innerHTML = `
+          <div style="text-align:center;padding:4rem;color:#888;font-family:'Exo 2',sans-serif;">
+            <div style="font-size:3rem;margin-bottom:1rem;">🕹️</div>
+            <h2>Juego no encontrado</h2>
+            <a href="tienda.html" class="btn-retro btn-retro-primary mt-3">Ir a la Tienda</a>
+          </div>`;
+        return;
+      }
+
+      mostrarProducto(game);
+
+      // Related games
+      const related = GAMES.filter(g => g.id !== game.id && g.category === game.category).slice(0, 4);
+      const fallback = GAMES.filter(g => g.id !== game.id).slice(0, 4);
+      const toShow = related.length > 0 ? related : fallback;
+      document.getElementById('relatedGames').innerHTML = toShow.map(g => irAlJuego2(g)).join('');
+    });
+  </script>
+</body>
+</html>

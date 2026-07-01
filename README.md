@@ -1,3 +1,3 @@
-"# DSW_TP2_Pozzer_Sosa_Tis" 
+# DSW_TP2_Pozzer_Sosa_Tis
 
-Proyecto v1.0
+Desarrollo de Sitios Web |  Trabajo Practico

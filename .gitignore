@@ -1,1 +1,18 @@
-.idea
+# assets
+assets/
+
+# sistema operativo
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# dependencias
+node_modules/
+
+# log
+*.log
