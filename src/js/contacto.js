@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             asunto.classList.add("is-valid");
         }
 
-        if (mensaje.value.trim().length < 20) {
+        if (mensaje.value.trim().length < 5) {
             mensaje.classList.add("is-invalid");
             valido = false;
         } else {
